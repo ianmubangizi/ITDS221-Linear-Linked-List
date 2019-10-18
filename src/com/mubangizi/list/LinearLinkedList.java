@@ -10,7 +10,7 @@ import com.mubangizi.node.Node;
 public interface LinearLinkedList<E> {
     int count();
 
-    Node<E>[] elements();
+    E[] elements();
 
     void add(E element);
 }

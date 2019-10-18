@@ -2,7 +2,6 @@ package com.mubangizi;
 
 import com.mubangizi.list.LinearLinkedList;
 import com.mubangizi.list.LinearLinkedListImpl;
-import com.mubangizi.node.Node;
 import java.util.Scanner;
 
 /**
@@ -28,8 +27,8 @@ public class Application {
             if (input.matches("P") | input.matches("p")) {
                 if (list.count() != 0) {
                     System.out.println("\nLIST DATA IS BELOW");
-                    for (Node e : list.elements()) {
-                        System.out.print("[" + e.getData() + "]-->");
+                    for (Object e : (Object[])list.elements()) {
+                        System.out.print("[" + e + "]-->");
                     }
                     System.out.println("(/)\n");
                 }

@@ -7,7 +7,6 @@ public class LinearLinkedListImpl<E extends Object> implements LinearLinkedList<
 
     private int size;
     private Node root;
-    private Node<E>[] nodes;
 
     public LinearLinkedListImpl() {
         this.size = 0;
@@ -19,8 +18,16 @@ public class LinearLinkedListImpl<E extends Object> implements LinearLinkedList<
     }
 
     @Override
-    public Node<E>[] elements() {
-        return nodes;
+    public E[] elements() {
+        return getData((E[]) new Object[size],root, size - 1);
+    }
+
+    private E[] getData(E[] array, Node node, int length) {
+        if (node != null) {
+            array[length--] = (E) node.getData();
+            return getData(array, node.next(), length);
+        }
+        return array;
     }
 
     @Override
@@ -31,18 +38,6 @@ public class LinearLinkedListImpl<E extends Object> implements LinearLinkedList<
         } else {
             root.next(newNode);
         }
-        addNode(newNode);
         size++;
-    }
-
-    private void addNode(Node<E> newNode) {
-        Node<E>[] tmp = new NodeImpl[size + 1];
-        if (nodes == null) {
-            tmp[size] = newNode;
-        } else {
-            System.arraycopy(nodes, 0, tmp, 1, nodes.length);
-            tmp[0] = newNode;
-        }
-        nodes = tmp;
     }
 }
