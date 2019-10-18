@@ -43,9 +43,5 @@ public class Application {
             } catch (NumberFormatException e) {
             }
         }
-//        list.add(65);
-//        list.add(21);
-//        list.add(38);
-//        list.add(32);
     }
 }
